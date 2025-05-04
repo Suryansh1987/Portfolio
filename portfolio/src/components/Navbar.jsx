@@ -3,15 +3,15 @@ import clsx from "clsx";
 
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "About", href: "#About" },
-  { name: "Skills", href: "#Skills" },
-  { name: "Projects", href: "#Projects" },
-  { name: "Contact", href: "#Contact" },
+  { name: "About", href: "#aboute" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [IsMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +51,7 @@ export const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          onClick={() => setIsMenuOpen(!IsMenuOpen)}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden z-50 p-2 focus:outline-none"
         >
           <span className="block w-6 h-0.5 bg-foreground mb-1"></span>
@@ -65,7 +65,7 @@ export const Navbar = () => {
         className={clsx(
           "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
           "transition-all duration-300 md:hidden",
-          IsMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
         <div className="flex flex-col space-y-8 text-xl">
@@ -74,7 +74,7 @@ export const Navbar = () => {
               key={key}
               href={item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  
             >
               {item.name}
             </a>
